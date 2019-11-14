@@ -3,6 +3,12 @@ import curses
 from curses import wrapper
 from gpiozero import LED
 from time import sleep
+# Constants
+motor1F = LED(23) # pin 16 on rpi0
+motor2F = LED(24) # pin 18
+motor1R = LED(27) # pin 13
+motor2R = LED(17) # pin 11
+
 def Forward():
     motor1F.on()
     motor2R.on()
@@ -37,11 +43,6 @@ def Anticlockwise():
 
 
 def main(screen):
-    motor1F = LED(23) # pin 16 on rpi0
-    motor2F = LED(24) # pin 18
-    motor1R = LED(27) # pin 13
-    motor2R = LED(17) # pin 11
-
     screen = curses.initscr()
     curses.noecho()
     curses.cbreak()
